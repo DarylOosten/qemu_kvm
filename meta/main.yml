@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: skeleton
+  role_name: qemu_kvm
   author: author
   description: description
   company: company

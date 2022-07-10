@@ -1,2 +1,63 @@
 ---
-# tasks file for ansible-role-skeleton/
+- name: Install Qemu KVM
+  become: true
+  tags: install
+  block:
+
+    # Check virtualization support
+
+    - name: Check CPU info
+      command: "grep -Eoc '(vmx|svm)' /proc/cpuinfo"
+      changed_when: false
+      register: cpuinfo
+
+    - name: Assert CPU info support
+      assert:
+        that:
+          - cpuinfo.stdout != '0'
+
+    # Check KVM support
+
+    - name: Install cpu-checker
+      become: true
+      package:
+        name: cpu-checker
+
+    - name: Run KVM ok
+      command: "kvm-ok"
+      changed_when: false
+      register: kvm_ok
+
+    - name: Assert KVM ok
+      assert:
+        that:
+          - "'INFO: /dev/kvm exists' in kvm_ok.stdout"
+          - "'acceleration can be used' in kvm_ok.stdout"
+
+    # Install KVM Qemu
+
+    - name: Install KVM Qemu
+      become: true
+      package:
+        name:
+          - bridge-utils
+          - qemu
+          - qemu-kvm
+          - libguestfs-tools
+          - libvirt-clients
+          - libvirt-daemon-system
+          - virtinst
+          - virt-manager
+
+    - name: Add user to libvirt and kvm
+      become: true
+      user:
+        name: "{{ user }}"
+        groups: libvirt,kvm
+        append: true
+
+    - name: Make sure libvirtd is running
+      become: true
+      ansible.builtin.systemd:
+        name: libvirtd
+        state: started
