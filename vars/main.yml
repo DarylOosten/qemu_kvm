@@ -1,2 +1,23 @@
 ---
-# vars file for ansible-role-skeleton/
+packages: {
+  Ubuntu: [
+    bridge-utils,
+    qemu,
+    qemu-kvm,
+    libguestfs-tools,
+    libvirt-clients,
+    libvirt-daemon-system,
+    virtinst,
+    virt-manager
+  ],
+  Debian: [
+    bridge-utils,
+    qemu-system,
+    qemu-utils,
+    libguestfs-tools,
+    libvirt-clients,
+    libvirt-daemon-system,
+    virtinst,
+    virt-manager
+  ]
+}

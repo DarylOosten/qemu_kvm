@@ -39,15 +39,8 @@
     - name: Install KVM Qemu
       become: true
       package:
-        name:
-          - bridge-utils
-          - qemu
-          - qemu-kvm
-          - libguestfs-tools
-          - libvirt-clients
-          - libvirt-daemon-system
-          - virtinst
-          - virt-manager
+        name: "{{ packages[ansible_distribution] }}"
+        state: present
 
     - name: Add user to libvirt and kvm
       become: true
