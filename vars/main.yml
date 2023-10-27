@@ -1,19 +1,29 @@
 ---
 packages: {
-  Ubuntu: [
+  Debian: [
     bridge-utils,
-    qemu,
-    qemu-kvm,
+    qemu-system,
+    qemu-utils,
     libguestfs-tools,
     libvirt-clients,
     libvirt-daemon-system,
     virtinst,
     virt-manager
   ],
-  Debian: [
+  LMDE: [
     bridge-utils,
     qemu-system,
     qemu-utils,
+    libguestfs-tools,
+    libvirt-clients,
+    libvirt-daemon-system,
+    virtinst,
+    virt-manager
+  ],
+  Ubuntu: [
+    bridge-utils,
+    qemu,
+    qemu-kvm,
     libguestfs-tools,
     libvirt-clients,
     libvirt-daemon-system,
