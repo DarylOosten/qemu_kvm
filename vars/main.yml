@@ -18,7 +18,9 @@ packages: {
     libvirt-clients,
     libvirt-daemon-system,
     virtinst,
-    virt-manager
+    virt-manager,
+
+    spice-client-gtk
   ],
   Ubuntu: [
     bridge-utils,
