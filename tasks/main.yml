@@ -45,7 +45,7 @@
     - name: Add user to libvirt and kvm
       become: true
       user:
-        name: "{{ user }}"
+        name: "{{ virtualization_user }}"
         groups: libvirt,kvm
         append: true
 
