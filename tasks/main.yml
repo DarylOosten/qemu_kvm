@@ -51,6 +51,6 @@
 
     - name: Make sure libvirtd is running
       become: true
-      ansible.builtin.systemd:
+      ansible.builtin.service:
         name: libvirtd
         state: started
