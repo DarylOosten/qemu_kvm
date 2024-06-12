@@ -6,9 +6,7 @@ packages: {
     qemu-utils,
     libguestfs-tools,
     libvirt-clients,
-    libvirt-daemon-system,
-    virtinst,
-    virt-manager
+    libvirt-daemon-system
   ],
   LMDE: [
     bridge-utils,
@@ -16,11 +14,7 @@ packages: {
     qemu-utils,
     libguestfs-tools,
     libvirt-clients,
-    libvirt-daemon-system,
-    virtinst,
-    virt-manager,
-
-    spice-client-gtk
+    libvirt-daemon-system
   ],
   Ubuntu: [
     bridge-utils,
@@ -28,8 +22,6 @@ packages: {
     qemu-kvm,
     libguestfs-tools,
     libvirt-clients,
-    libvirt-daemon-system,
-    virtinst,
-    virt-manager
+    libvirt-daemon-system
   ]
 }
